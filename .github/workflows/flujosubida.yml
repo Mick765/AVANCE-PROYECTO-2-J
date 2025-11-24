@@ -1,0 +1,39 @@
+name: Integración y entrega continua
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      nombres: "Julio MIck Jagger"
+      apellidos: "Tacuri Lopez"
+      edad: "20"
+      
+      version_proyecto: "3.0"
+
+    steps:
+
+    - name: presentación
+      run: |
+        echo "Nombres: $nombres"
+        echo "Apellidos: $apellidos"
+        echo "Edad: $edad"
+
+    - name: datos generales
+      run: echo "carrera de ingeniería de sistemas"
+
+    - name: variables de entorno secretas
+      env:
+        user: ${{ secrets.USER }}
+        password: ${{ secrets.PASSWORD }}
+      run: |
+        echo "user: $user"
+        echo "password: $password"
+
+    - name: variables abiertas
+      run: |
+        echo "Versión del proyecto: $version_proyecto"
