@@ -28,8 +28,8 @@ jobs:
 
     - name: variables de entorno secretas
       env:
-        user: ${{ secrets.USER }}
-        password: ${{ secrets.PASSWORD }}
+        user: ${{ vars.USER }}
+        password: ${{ vars.PASSWORD }}
       run: |
         echo "user: $user"
         echo "password: $password"
